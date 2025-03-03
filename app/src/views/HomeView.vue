@@ -1,9 +1,9 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import DataPage from '@/components/DataPage.vue'
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <DataPage />
   </main>
 </template>
