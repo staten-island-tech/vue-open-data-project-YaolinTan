@@ -1,9 +1,11 @@
 <script setup>
-import DataPage from '@/components/DataPage.vue'
+import DataFetch from '@/components/DataFetch.vue'
+import UserSelection from '@/components/UserSelection.vue'
 </script>
 
 <template>
   <main>
-    <DataPage />
+    <DataFetch />
+    <UserSelection />
   </main>
 </template>
