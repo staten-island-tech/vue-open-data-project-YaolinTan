@@ -33,6 +33,14 @@
         </option>
       </select>
     </div>
+    <div class="mr-[1rem]">
+      <select v-model="selectedTime" class="p-2 border">
+        <option value="" disabled selected>Time</option>
+        <option v-for="time in times" :key="time.value" :value="time.value">
+          {{ time.label }}
+        </option>
+      </select>
+    </div>
   </div>
 </template>
 
@@ -42,6 +50,7 @@ import { ref } from 'vue'
 const selectedBorough = ref('')
 const selectedInOrOut = ref('')
 const selectedCategory = ref('')
+const selectedTime = ref('')
 
 const boroughs = [
   { label: 'Bronx', value: 'Bronx' },
@@ -56,10 +65,31 @@ const categories = [
   { label: 'Industrial', value: 'industrial' },
 ]
 
-const location = [
-  { label: 'Apartment', value: 'apartment' },
-  { label: 'Townhouse', value: 'townhouse' },
-  { label: 'Condo', value: 'condo' },
+const hours = [
+  { label: '12:00 AM', value: '00:00' },
+  { label: '1:00 AM', value: '01:00' },
+  { label: '2:00 AM', value: '02:00' },
+  { label: '3:00 AM', value: '03:00' },
+  { label: '4:00 AM', value: '04:00' },
+  { label: '5:00 AM', value: '05:00' },
+  { label: '6:00 AM', value: '06:00' },
+  { label: '7:00 AM', value: '07:00' },
+  { label: '8:00 AM', value: '08:00' },
+  { label: '9:00 AM', value: '09:00' },
+  { label: '10:00 AM', value: '10:00' },
+  { label: '11:00 AM', value: '11:00' },
+  { label: '12:00 PM', value: '12:00' },
+  { label: '1:00 PM', value: '13:00' },
+  { label: '2:00 PM', value: '14:00' },
+  { label: '3:00 PM', value: '15:00' },
+  { label: '4:00 PM', value: '16:00' },
+  { label: '5:00 PM', value: '17:00' },
+  { label: '6:00 PM', value: '18:00' },
+  { label: '7:00 PM', value: '19:00' },
+  { label: '8:00 PM', value: '20:00' },
+  { label: '9:00 PM', value: '21:00' },
+  { label: '10:00 PM', value: '22:00' },
+  { label: '11:00 PM', value: '23:00' },
 ]
 </script>
 
