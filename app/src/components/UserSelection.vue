@@ -34,9 +34,17 @@
       </select>
     </div>
     <div class="mr-[1rem]">
-      <select v-model="selectedTime" class="p-2 border">
-        <option value="" disabled selected>Time</option>
-        <option v-for="time in times" :key="time.value" :value="time.value">
+      <select v-model="selectedTimeStart" class="p-2 border">
+        <option value="" disabled selected class="text-gray-400">Time Start</option>
+        <option v-for="time in times" :key="time.value" :value="time.value" class="text-black">
+          {{ time.label }}
+        </option>
+      </select>
+    </div>
+    <div class="mr-[1rem]">
+      <select v-model="selectedTimeEnd" class="p-2 border">
+        <option value="" disabled selected class="text-gray-400">Time End</option>
+        <option v-for="time in times" :key="time.value" :value="time.value" class="text-black">
           {{ time.label }}
         </option>
       </select>
@@ -50,7 +58,8 @@ import { ref } from 'vue'
 const selectedBorough = ref('')
 const selectedInOrOut = ref('')
 const selectedCategory = ref('')
-const selectedTime = ref('')
+const selectedTimeStart = ref('')
+const selectedTimeEnd = ref('')
 
 const boroughs = [
   { label: 'Bronx', value: 'Bronx' },
@@ -65,7 +74,7 @@ const categories = [
   { label: 'Industrial', value: 'industrial' },
 ]
 
-const hours = [
+const times = [
   { label: '12:00 AM', value: '00:00' },
   { label: '1:00 AM', value: '01:00' },
   { label: '2:00 AM', value: '02:00' },
