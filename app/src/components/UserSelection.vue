@@ -16,8 +16,8 @@
     <div class="mr-[1rem]">
       <select v-model="selectedInOrOut" class="p-2 border">
         <option value="" disabled selected class="text-gray-400">Inside/Outside</option>
-        <option class="text-black" value="Inside">Inside</option>
-        <option class="text-black" value="Outside">Outside</option>
+        <option class="text-black" value="INSIDE">Inside</option>
+        <option class="text-black" value="OUTSIDE">Outside</option>
       </select>
     </div>
     <div class="mr-[1rem]">
@@ -62,18 +62,21 @@ const selectedTimeStart = ref('')
 const selectedTimeEnd = ref('')
 
 const boroughs = [
-  { label: 'Bronx', value: 'Bronx' },
-  { label: 'Brooklyn', value: 'Brooklyn' },
-  { label: 'Manhattan', value: 'Manhattan' },
-  { label: 'Queens', value: 'Queens' },
-  { label: 'Staten Island', value: 'Staten Island' },
+  { label: 'Bronx', value: 'BRONX' },
+  { label: 'Brooklyn', value: 'BROOKLYN' },
+  { label: 'Manhattan', value: 'MANHATTAN' },
+  { label: 'Queens', value: 'QUEENS' },
+  { label: 'Staten Island', value: 'STATEN ISLAND' },
 ]
 const categories = [
   { label: 'Residential', value: 'residential' },
   { label: 'Commercial', value: 'commercial' },
   { label: 'Industrial', value: 'industrial' },
+  { label: 'Transit', value: 'TRANSIT' },
+  { label: 'Street', value: 'STREET' },
+  { label: 'Housing/Dwelling', value: 'Housing', value: 'Dwelling' },
 ]
-
+console.log(categories[5].value)
 const times = [
   { label: '12:00 AM', value: '00:00' },
   { label: '1:00 AM', value: '01:00' },
