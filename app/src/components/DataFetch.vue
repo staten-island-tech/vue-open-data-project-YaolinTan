@@ -25,8 +25,6 @@ async function fetchData() {
   } catch (error) {
     console.error('Error fetching data:', error)
   }
-
-  console.log({ data1: data1.value, data2: data2.value })
 }
 
 onMounted(fetchData)
