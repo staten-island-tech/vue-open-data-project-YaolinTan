@@ -25,4 +25,4 @@ const times = [
   { label: '11:00 PM', value: '23:00' },
 ]
 
-export { times }
+export default times
