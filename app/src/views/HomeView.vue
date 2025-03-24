@@ -9,7 +9,8 @@ import TheChart from '@/components/TheChart.vue'
   <main>
     <DataFetch />
     <UserSelection />
-    <PickChart />
     <TheChart />
+    <PickChart />
   </main>
 </template>
+

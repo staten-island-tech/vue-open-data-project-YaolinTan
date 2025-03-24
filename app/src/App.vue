@@ -19,7 +19,7 @@ import { RouterLink, RouterView } from 'vue-router'
 <style scoped>
 header {
   line-height: 1.5;
-  max-height: 100vh;
+  max-height: 101vh;
 }
 
 .logo {
@@ -28,7 +28,7 @@ header {
 }
 
 nav {
-  width: 100%;
+  width: 110%;
   font-size: 12px;
   text-align: center;
   margin-top: 2rem;
@@ -78,3 +78,4 @@ nav a:first-of-type {
   }
 }
 </style>
+

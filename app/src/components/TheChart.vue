@@ -68,7 +68,7 @@ function countIncidentsByHour(data) {
 
     const time12 = convertTo12HourFormat(time24)
     const hour = time12.split(':')[0] + ' ' + time12.split(' ')[1]
-    if (hourlyCounts[hour] !== undefined) {
+    if (hourlyCounts[hour] != undefined) {
       hourlyCounts[hour]++
     }
   })
@@ -95,8 +95,8 @@ const updateChart = () => {
           {
             label: 'Incidents',
             data: data,
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: 'rgba(75, 191, 192, 0.3)',
+            borderColor: 'rgba(70, 192, 193, 1)',
             borderWidth: 1,
           },
         ],

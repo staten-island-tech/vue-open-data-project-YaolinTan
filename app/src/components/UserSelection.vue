@@ -35,7 +35,7 @@
     </div>
     <div class="mr-[1rem]">
       <select v-model="selectedTimeStart" class="p-2 border">
-        <option value="" disabled selected class="text-gray-400">Time Start</option>
+        <option value="" disabled selected class="text-gray-500">Time Start</option>
         <option v-for="time in times" :key="time.value" :value="time.value" class="text-black">
           {{ time.label }}
         </option>
@@ -43,7 +43,7 @@
     </div>
     <div class="mr-[1rem]">
       <select v-model="selectedTimeEnd" class="p-2 border">
-        <option value="" disabled selected class="text-gray-400">Time End</option>
+        <option value="" disabled selected class="text-gray-300">Time End</option>
         <option v-for="time in times" :key="time.value" :value="time.value" class="text-black">
           {{ time.label }}
         </option>

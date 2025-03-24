@@ -17,7 +17,7 @@ async function fetchData() {
     if (!response1.ok) throw new Error(`HTTP error! Status: ${response1.status}`)
     data1.value = await response1.json()
 
-    const response2 = await fetch(`${url}?$offset=1000`)
+    const response2 = await fetch(`${url}?$offset=900`)
     if (!response2.ok) throw new Error(`HTTP error! Status: ${response2.status}`)
     data2.value = await response2.json()
 
