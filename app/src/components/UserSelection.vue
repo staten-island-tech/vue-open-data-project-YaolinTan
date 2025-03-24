@@ -20,7 +20,7 @@
         <option class="text-black" value="OUTSIDE">Outside</option>
       </select>
     </div>
-    <div class="mr-[1rem]">
+    <div class="mr-4">
       <select v-model="selectedCategory" class="p-2 border">
         <option value="" disabled selected class="text-gray-400">Location Category</option>
         <option
