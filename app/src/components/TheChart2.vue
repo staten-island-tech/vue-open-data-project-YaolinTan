@@ -1,7 +1,7 @@
 <template>
   <div>
     <DataFetch @data-loaded="handleData" />
-    <h1>Incident Histogram</h1>
+    <h1>Incident Pie Chart</h1>
     <canvas ref="chartRef"></canvas>
   </div>
 </template>
@@ -11,12 +11,13 @@ import { ref, defineProps } from 'vue'
 import { Chart, registerables } from 'chart.js'
 import DataFetch from './DataFetch.vue'
 
+const props = defineProps(['selectedBorough'])
 const combinedData = ref([])
 const chartRef = ref(null)
 let chartInstance = null
+
 const handleData = (data) => {
   combinedData.value = data
-  console.log('Received data:', combinedData.value)
   updateChart()
 }
 
@@ -26,7 +27,7 @@ function convertTo12HourFormat(time24) {
   const [hours, minutes] = time24.split(':')
   const hour = parseInt(hours, 10)
   const suffix = hour >= 12 ? 'PM' : 'AM'
-  const hour12 = hour % 12 || 12 // Convert 0 to 12 for AM
+  const hour12 = hour % 12 || 12
   return `${hour12}:${minutes} ${suffix}`
 }
 
@@ -84,24 +85,24 @@ const updateChart = () => {
 
   if (chartRef.value) {
     chartInstance = new Chart(chartRef.value, {
-      type: 'bar',
+      type: 'pie',
       data: {
         labels: labels,
         datasets: [
           {
             label: 'Incidents',
             data: data,
-            backgroundColor: 'rgba(75, 191, 192, 0.3)',
-            borderColor: 'rgba(70, 192, 193, 1)',
+            backgroundColor: labels.map((_, i) => `hsl(${i * 15}, 70%, 60%)`),
+            borderColor: '#fff',
             borderWidth: 1,
           },
         ],
       },
       options: {
         responsive: true,
-        scales: {
-          y: {
-            beginAtZero: true,
+        plugins: {
+          legend: {
+            position: 'right',
           },
         },
       },

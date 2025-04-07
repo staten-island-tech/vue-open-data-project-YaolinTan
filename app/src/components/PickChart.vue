@@ -3,7 +3,7 @@
     <div class="wrapper">
       <nav>
         <RouterLink to="/histogram">Histogram</RouterLink>
-        <RouterLink to="/about">Pie Chart</RouterLink>
+        <RouterLink to="/pie">Pie Chart</RouterLink>
       </nav>
     </div>
   </div>

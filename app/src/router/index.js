@@ -10,10 +10,14 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/histogram/:borough?', // Add dynamic `borough` parameter
+      path: '/histogram', // Add dynamic `borough` parameter
       name: 'histogram',
       component: () => import('../views/HistogramView.vue'),
-      props: true, // Pass route parameters as props to the component
+    },
+    {
+      path: '/pie', // Add dynamic `borough` parameter
+      name: 'pie',
+      component: () => import('../views/PieView.vue'),
     },
   ],
 })
