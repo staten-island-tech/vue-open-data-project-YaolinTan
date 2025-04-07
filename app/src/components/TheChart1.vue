@@ -7,15 +7,15 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, watch, defineProps } from 'vue'
 import { Chart, registerables } from 'chart.js'
 import DataFetch from './DataFetch.vue'
 
+const props = defineProps(['selectedBorough']) // Accept selectedBorough as a prop
 const combinedData = ref([])
 const chartRef = ref(null)
 let chartInstance = null
-
-// Handle incoming data from the DataFetch component
+console.log(selectedBorough.value)
 const handleData = (data) => {
   combinedData.value = data
   console.log('Received data:', combinedData.value)
@@ -24,7 +24,6 @@ const handleData = (data) => {
 
 Chart.register(...registerables)
 
-// Function to convert 24-hour time to 12-hour format (AM/PM)
 function convertTo12HourFormat(time24) {
   const [hours, minutes] = time24.split(':')
   const hour = parseInt(hours, 10)
@@ -33,7 +32,6 @@ function convertTo12HourFormat(time24) {
   return `${hour12}:${minutes} ${suffix}`
 }
 
-// Function to count incidents by hour intervals
 function countIncidentsByHour(data) {
   const hourlyCounts = {
     '12 AM': 0,
@@ -60,6 +58,10 @@ function countIncidentsByHour(data) {
     '9 PM': 0,
     '10 PM': 0,
     '11 PM': 0,
+  }
+
+  if (props.selectedBorough && props.selectedBorough !== '') {
+    console.log('Hello World') // Condition met, log "Hello World"
   }
 
   data.forEach((item) => {
@@ -113,7 +115,15 @@ const updateChart = () => {
   }
 }
 
+// Watch for changes in `selectedBorough`
+watch(
+  () => props.selectedBorough,
+  (newVal) => {
+    if (newVal) {
+      console.log('Borough changed to:', newVal)
+    }
+  },
+)
+
 watch(combinedData, updateChart)
 </script>
-
-<style lang="scss" scoped></style>
